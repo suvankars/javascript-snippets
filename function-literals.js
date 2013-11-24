@@ -1,8 +1,9 @@
 #!/usr/bin/node
 
 //Function Literal
+
 //Created a variable called 'each' and store a function
-//Using higher order function
+//Iterating an array using higher order function
 
 var each = function(arr, foo){
     var i;
