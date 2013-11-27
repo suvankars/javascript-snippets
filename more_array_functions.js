@@ -72,3 +72,29 @@ Returns:
     }
 
 find([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], isEven)
+
+
+
+
+/*
+ flatMap
+ .......
+
+ Builds a new array by applying a function to all elements of this array and using the elements of the resulting collections.
+     a is an array.
+     f is the function to apply to each element.
+ Returns:
+     a new array resulting from applying the given collection-valued function f to each element of this array and concatenating the results.
+ */
+
+    var flatMap = function(a, f) {
+	modifiedArray = a.map(f)
+	var flattened = modifiedArray.reduce(function(a, b) {
+	        return a.concat(b);
+	});
+	return flattened;
+    };
+
+flatMap([1, 2, 3, 4, 5], function(e){ return [2 * e]; })	     // should return the array [2, 4, 6, 8, 10]
+flatMap([1, 2, 3, 4, 5], function(e){ return [1, 2 * e];})           // should return the array [1, 2, 1, 4, 1, 6, 1, 8, 1, 10] 
+flatMap([1, 2, 3, 4, 5], function(e){ return [parseInt(2 / e), parseInt(2 * e)]; })      // should return the array [2, 2, 1, 4, 0, 6, 0, 8, 0, 10] 
