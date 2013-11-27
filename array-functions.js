@@ -14,8 +14,8 @@ the number of elements satisfying the predicate p.
 
 var count = function(a, p) {
 	var satisfiedElements = (a.filter(p));
-	console.log("number of element that satisfying the predicate, is " + satisfiedElements.length);
     }
+
 count([1, 2, 3], function(e){ 
     return e <= 2; 
 }) 
@@ -39,7 +39,6 @@ var distinct = function(a) {
 	    unique.push(a[i])
 	}
     }	
-    console.log("Unique new array " + unique)
 };
 
 
@@ -61,7 +60,6 @@ returns
 
 var drop = function(a, n){
     a.splice(0,n)
-    console.log("Left Reduced array " + a)
 };
 
 drop([1, 2, 3, 4, 5], 2)
@@ -82,8 +80,6 @@ var dropRight = function(a, n){
 	return a.length-n;
     }
     a.splice(rightIndex(n), n) //should return the array [1, 2, 3].
-    console.log("Right Reduced array " + a)
-
 };
 
 dropRight([1, 2, 3, 4, 5], 2)
