@@ -149,7 +149,7 @@ function endsWith(a,b){
 	return foundMatch;
 }
 
-(endsWith([1,2,3,4,5], [23,4,5]) // should retun true;
+(endsWith([1,2,3,4,5], [23,4,5])) // should retun true;
 
 /*
 Filter
@@ -294,4 +294,40 @@ var mult = function(a, b) {return (a * b);};
  
 fold([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 0, add);
 fold([1, 2, 3, 4, 5], 1, mult);
+
+/*
+forall
+......
+
+Tests whether a predicate holds for all elements of this array.
+    a is an array.
+    p is the predicate used to test elements.
+Returns:
+    true if the given predicate p holds for all elements of this array, otherwise false.
+*/
+
+
+function forall (a, p) {
+    rv = a.every(p);
+    return rv;
+};
+
+var greaterThanFive = function(e) { 
+    return e > 5; 
+};
+
+var greaterThanZero = function(e) {
+    return e > 0;
+};
+
+var lessThanEleven = function(e) {
+    return e < 11;
+};
+
+forall(([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]), lessThanEleven)   // should return true
+forall([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], greaterThanZero)    // should return true
+forall([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], greaterThanFive )   //should return false
+
+
+
 
