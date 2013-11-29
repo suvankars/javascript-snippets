@@ -255,9 +255,9 @@ flatten
 .......
 
 Converts an array of arrays into a array formed by the elements of these arrays.
-	a is an array of arrays.
+    a is an array of arrays.
 Returns:
-	a new array resulting from concatenating all element array.
+    a new array resulting from concatenating all element array.
 */
 
 function flatten(a) {
@@ -269,4 +269,29 @@ function flatten(a) {
 
 flatten([[1, 2, 3, 4, 5], [1, 2, 3]]);
 
+
+/*
+fold
+....
+
+Folds the elements of this array using the specified associative binary operator. The order in which operations are performed on elements is unspecified and may be nondeterministic.
+    a is an array.
+    z a neutral element for the fold operation; may be added to the result an arbitrary number of times, and must not change the result.
+    op is a binary operator function that must be associative.
+Returns:
+    the result of applying fold operator op between all the elements and z
+
+    The FoldFunction is one of the CommonHigherOrderFunctions. It generally takes a sequence, a function of two arguments, and an initial value (often the "identity" value of the function--i.e. 0 for addition, 1 for multiplication, false for boolean OR, negative infinity for maximum, etc.) and combines the sequence by applying the function to the sequence's end element and the result of recursively folding the function over the rest of the sequence. Folds can be left-associative (foldl) or right-associative (foldr) -- can start at either end of the list.
+*/
+
+function fold(a, z, op) {
+    rv = a.reduce(op);
+    return rv;
+}
+ 
+var add = function(a, b) {return (a + b);};
+var mult = function(a, b) {return (a * b);};
+ 
+fold([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 0, add);
+fold([1, 2, 3, 4, 5], 1, mult);
 
