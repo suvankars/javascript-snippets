@@ -328,6 +328,43 @@ forall(([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]), lessThanEleven)   // should return tru
 forall([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], greaterThanZero)    // should return true
 forall([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], greaterThanFive )   //should return false
 
+/*
+groupBy
+.......
+
+Partitions an array into an object of arrays according to some discriminator function.
+    a is an array.
+    f is the discriminator function.
+Returns:
+    An object from keys to arrays such every key k is bound to a array of those elements x for which f(x) equals k.
+*/
+
+
+var groupBy = function(a, f){
+    var modGroup = {};
+    var mod2 = [];
+    var nonMod2 = [];
+
+    a.map( function (a) { 
+	if (modulo2(a)){ 
+	    mod2.push(a);
+	}
+	else {
+	    nonMod2.push(a); 
+	}
+    });
+
+    modGroup[0] = mod2;
+    modGroup [1] = nonMod2;
+
+    return modGroup;
+}
+
+var modulo2 = function(e) {
+    return e%2;
+};
+
+groupBy([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], modulo2)
 
 
 
