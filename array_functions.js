@@ -49,8 +49,22 @@ var head = function (a){
 head([1,2,3,4,5]); //Should return 1 
 head([2,3,4,5]); //Should return 2
 
+/*
+init
+....
 
+Selects all elements except the last.
+    a is an array.
+Returns:
+    an array consisting of all elements of this array except the last one
+*/
 
+var init = function (a){
+    initElm = a.slice(0, (a.length-1))
+    return initElm; 
+}
+
+init([1,2,3,4,5,6])  //Should return [1,2,3,4,5]
 /*Distinct
 --------
 
@@ -137,12 +151,13 @@ function isOdd(e) {
 
 var dropWhile = function (a, p) {
     var i;
+    var oddElm = [];
     for (i = 0; i < a.length; i++) {
-        if (p(a[i])) {
-            a.splice(i, 1);
+        if (!p(a[i])) {
+	    oddElm.push(a[i])
         }
     }
-    return a;     //should return the array [2, 4]
+    return oddElm;     //should return the array [2, 4]
 };
 
 
