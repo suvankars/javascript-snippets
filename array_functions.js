@@ -1,6 +1,7 @@
 #!/usr/bin/node
 
 /*Count
+ *
 -----
 
 Counts the number of elements in the array a which satisfy a predicate p.
@@ -419,4 +420,34 @@ var union = function(a,b) {
 };
 union( [1, 2, 3, 4, 5], [3, 4, 5, 6, 7, 8]);    // should return the array [1, 2, 3, 4, 5, 3, 4, 5, 6, 7, 8]
 union( [1, 2, 2, 2, 5], [2, 2, 5, 6, 7, 8]);    // should return the array [1, 2, 2, 2, 5, 2, 2, 5, 6, 7, 8]
+
+/*
+zip
+....
+
+Returns an array formed from an array and another array by combining corresponding elements in pairs.
+If one of the two arrays is longer than the other, its remaining elements are ignored.
+    a is an array.
+    b is the array providing the second half of each result pair.
+Returns:
+    a new array containing pairs consisting of corresponding elements of a and b. The length of the returned array is the minimum of the lengths of a and b.
+*/
+
+
+
+var zip = function(a, b) {
+    minLength = Math.min (a.length, b.length)
+    var i;
+    zipedElm = [];
+    for(i = 0; i < minLength ; i++){
+	zipedElm.push([a[i], b[i]]);
+    }	
+    return zipedElm;
+
+};
+
+
+zip([1, 2, 3, 4, 5], [5, 4, 3, 2, 1]) //  should return the array [[1,5], [2,4], [3,3], [4,2], [5,1]]
+zip([1, 2, 3], [5, 4, 3, 2, 1]) //  should return the array [[1,5], [2,4], [3,3]
+zip([1, 2, 3, 4, 5], [ 3, 2, 1]) //  should return the array [[1,3], [2,2], [3,1]]
 
