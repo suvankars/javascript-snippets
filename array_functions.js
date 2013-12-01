@@ -159,8 +159,7 @@ var dropRight = function (a, n) {
     function rightIndex(n) {
         return (a.length - n);
     }
-    elm = a.slice(0, rightIndex(n));
-    return elm;  //should return the array [1, 2, 3]
+    return a.slice(0, rightIndex(n));  //should return the array [1, 2, 3]
 };
 
 dropRight([1, 2, 3, 4, 5], 2);
