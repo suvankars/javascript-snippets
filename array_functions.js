@@ -30,6 +30,27 @@ count([4,5,6,7,8,9,1], function(e){
     return e <= 8; //should return 6
 });
 
+
+
+/*
+head
+....
+
+Selects the first element of this array.
+    a is an array.
+Returns:
+    the first element of this array.
+*/
+
+var head = function (a){
+    return a[0];
+}
+
+head([1,2,3,4,5]); //Should return 1 
+head([2,3,4,5]); //Should return 2
+
+
+
 /*Distinct
 --------
 
