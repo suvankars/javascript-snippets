@@ -156,14 +156,16 @@ Returns:
 */
 
 var dropRight = function (a, n) {
-    function rightIndex(n) {
+    function rightIndex(n) 
+	{
         return (a.length - n);
     }
-    return a.slice(0, rightIndex(n));  //should return the array [1, 2, 3]
+    return a.slice(0, rightIndex(n)); 
 };
 
-dropRight([1, 2, 3, 4, 5], 2);
-dropRight([1, 2, 3, 4, 5], 4);
+dropRight([1, 2, 3, 4, 5], 2); //should return the array [1, 2, 3]
+dropRight([1, 2, 3, 4, 5], 10); //should return the array []
+
 
 
 /*	
@@ -183,13 +185,13 @@ function isOdd(e) {
 
 var dropWhile = function (a, p) {
     var i;
-    var oddElm = [];
+    var retain = [];
     for (i = 0; i < a.length; i++) {
         if (!p(a[i])) {
-	    oddElm.push(a[i])
+	    retain.push(a[i])
         }
     }
-    return oddElm;     //should return the array [2, 4]
+    return retain;     //should return the array [2, 4]
 };
 
 
@@ -209,7 +211,9 @@ dropWhile([1,2,3,4,5], isOdd);
 	 true if this array has b as a suffix, false otherwise.
 */
 
+    /*
 function endsWith(a,b){
+
 	foundMatch = true;
 	if (a.length >= b.length) {
 		startIndex = a.length - b.length
@@ -226,7 +230,26 @@ function endsWith(a,b){
 	return foundMatch;
 }
 
-(endsWith([1,2,3,4,5], [23,4,5])) // should retun true;
+*/
+
+function endsWith (a, b){
+
+    var i = b.length-1;
+    var j = a.length-1;
+
+    for(i; i>0 ; i--){
+	if(b[i] != a[j]){
+	    return false;
+	}
+	j--;
+    }
+    return true;
+}
+
+
+endsWith([1,2,3,4,5], [3,4,5]); // should retun true;
+endsWith([1,2,3,7,8,9], [7, 8, 9]); // should retun true;
+endsWith([1,2,3,4,5], [3,6,5]); // should retun false;
 
 /*
 Filter
