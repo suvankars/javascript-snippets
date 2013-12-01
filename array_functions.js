@@ -60,8 +60,7 @@ Returns:
 */
 
 var init = function (a){
-    initElm = a.slice(0, (a.length-1))
-    return initElm; 
+    return a.slice(0, (a.length-1));
 }
 
 init([1,2,3,4,5,6])  //Should return [1,2,3,4,5]
@@ -93,8 +92,7 @@ Returns:
 */
 
 var tail = function (a){
-    tailElm = a.slice(1, a.length)
-    return tailElm;
+    return a.slice(1);
 }
 
 tail([1, 2, 3, 4, 5]);  // should return [2, 3, 4, 5]       
@@ -115,13 +113,13 @@ a new array which contains the first occurrence of every element of this array.
 
 var distinct = function (a) {
     "use strict";
-    var uniqueElm = [], i;
+    var distinctArr = [], i;
     for (i = 0; i < (a.length); i++) {
-        if (uniqueElm.indexOf(a[i]) === -1) {
-            uniqueElm.push(a[i]);          
+        if (distinctArr.indexOf(a[i]) === -1) {
+            distinctArr.push(a[i]);          
         }
     }
-    return uniqueElm;
+    return distinctArr;
 };
 
 distinct([1, 2, 1, 2, 3]);
