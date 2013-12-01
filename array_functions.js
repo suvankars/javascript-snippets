@@ -137,8 +137,7 @@ returns
 */
 
 var drop = function (a, n) {
-    elm = a.slice(n);
-    return elm;       // Should return [3, 4, 5]   
+    return a.slice(n);       // Should return [3, 4, 5]   
 };
 
 drop([1, 2, 3, 4, 5], 2); 
