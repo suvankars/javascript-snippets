@@ -366,5 +366,34 @@ var modulo2 = function(e) {
 
 groupBy([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], modulo2)
 
+    
 
 
+/*
+grouped
+.......
+
+Partitions elements in fixed size arrays.
+    a is an array.
+    size the number of elements per group.
+Returns:
+    An array of arrays of size size, except the last will be truncated if the elements don't divide evenly.
+*/
+
+
+//TBD more functional approach 
+var grouped = function(a, size) {
+    var group = [];
+    var  start = 0;
+    var i = Math.ceil(a.length/size);
+    while(i != 0){
+	var end = start + size;
+	b = a.slice(start, end)
+	group.push(b);
+	start = end;
+	i--;
+    }
+    return group;
+};
+
+grouped([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 3);
