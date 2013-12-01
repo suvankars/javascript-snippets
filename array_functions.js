@@ -13,15 +13,22 @@ the number of elements satisfying the predicate p.
 */
 
 var count = function (a, p) {
-        var filteredElm = (a.filter(p));
-        return filteredElm.length;  //should return 2
+	var counter = 0;
+	var i;
+	for (i = 0; i < a.length ; i++){
+	    if (p(a[i])) { counter++ }
+	}
+        return counter; 
     }
 
 count([1, 2, 3], function(e){ 
-    return e <= 2; 
+    return e <= 2;  //should return 2
 });
 
 
+count([4,5,6,7,8,9,1], function(e){ 
+    return e <= 8; //should return 6
+});
 
 /*Distinct
 --------
