@@ -65,6 +65,42 @@ var init = function (a){
 }
 
 init([1,2,3,4,5,6])  //Should return [1,2,3,4,5]
+
+/*
+last
+.....
+
+Selects the last element.
+    a is an array.
+Returns:
+    The last element of this array.
+*/
+
+var last = function(a){
+    return a[a.length-1];
+}    
+    
+last([1,2,3,4,5]);  //Should return 5
+
+/*
+tail
+....
+
+Selects all elements except the first.
+    a is an array.
+Returns:
+    a array consisting of all elements of this array except the first one
+*/
+
+var tail = function (a){
+    tailElm = a.slice(1, a.length)
+    return tailElm;
+}
+
+tail([1, 2, 3, 4, 5]);  // should return [2, 3, 4, 5]       
+tail([1, 2]);	        // Should return [1]      
+tail([]);	        // Should return []
+
 /*Distinct
 --------
 
