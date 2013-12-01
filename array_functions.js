@@ -61,8 +61,8 @@ returns
 */
 
 var drop = function (a, n) {
-    a.splice(0, n);
-    return a;       // Should return [3, 4, 5]   
+    elm = a.slice(n);
+    return elm;       // Should return [3, 4, 5]   
 };
 
 drop([1, 2, 3, 4, 5], 2); 
@@ -84,11 +84,12 @@ var dropRight = function (a, n) {
     function rightIndex(n) {
         return (a.length - n);
     }
-    a.splice(rightIndex(n), n);
-    return a;  //should return the array [1, 2, 3]
+    elm = a.slice(0, rightIndex(n));
+    return elm;  //should return the array [1, 2, 3]
 };
 
 dropRight([1, 2, 3, 4, 5], 2);
+dropRight([1, 2, 3, 4, 5], 4);
 
 
 /*	
