@@ -397,3 +397,26 @@ var grouped = function(a, size) {
 };
 
 grouped([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 3);
+
+
+
+/*
+union
+.....
+
+Produces a new sequence which contains all elements of this array and also all elements of a given sequence.
+    a is an array.
+    b is the array of elements to union with.
+Returns:
+    a new array which contains all elements of array a followed by all elements of array b.
+
+*/    
+
+
+var union = function(a,b) {
+    u = a.concat(b);
+    return u;
+};
+union( [1, 2, 3, 4, 5], [3, 4, 5, 6, 7, 8]);    // should return the array [1, 2, 3, 4, 5, 3, 4, 5, 6, 7, 8]
+union( [1, 2, 2, 2, 5], [2, 2, 5, 6, 7, 8]);    // should return the array [1, 2, 2, 2, 5, 2, 2, 5, 6, 7, 8]
+
