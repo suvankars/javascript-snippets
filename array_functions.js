@@ -237,7 +237,7 @@ function endsWith (a, b){
     var i = b.length-1;
     var j = a.length-1;
 
-    for(i; i>0 ; i--){
+    for(i; i >= 0 ; i--){
 	if(b[i] != a[j]){
 	    return false;
 	}
