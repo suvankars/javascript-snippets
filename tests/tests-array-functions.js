@@ -32,8 +32,23 @@ exports['count'] = nodeunit.testCase({
 		var actual = arrays.count(["one", "two", "three"], function(e){
 			return e.length <= 3;
 		});
-		test.equal(actual, 2)
+		test.equal(actual, 2);
 		test.done();
 	}
 
+});
+
+
+exports['head'] = nodeunit.testCase({
+	'find head of an empty array': function (test) {
+		var arrHead = arrays.head([]);
+		test.equal(typeof(arrHead), 'undefined');
+		test.done();
+	},
+
+	'find head of an numeric array': function (test) {
+		var arrHead = arrays.head([2, 5, 7, 8, 9]);
+		test.equal(arrHead, 2);
+		test.done();
+	}
 });

@@ -12,23 +12,14 @@ Returns:
 the number of elements satisfying the predicate p.
 */
 
-var count = function (a, p) {
+exports.count = function (a, p) {
 	var counter = 0;
 	var i;
 	for (i = 0; i < a.length ; i++){
 	    if (p(a[i])) { counter++ }
 	}
         return counter; 
-    }
-
-count([1, 2, 3], function(e){ 
-    return e <= 2;  //should return 2
-});
-
-
-count([4,5,6,7,8,9,1], function(e){ 
-    return e <= 8; //should return 6
-});
+}
 
 
 
@@ -42,12 +33,10 @@ Returns:
     the first element of this array.
 */
 
-var head = function (a){
+exports.head = function (a) {
     return a[0];
 }
 
-head([1,2,3,4,5]); //Should return 1 
-head([2,3,4,5]); //Should return 2
 
 /*
 init
