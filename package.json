@@ -1,0 +1,17 @@
+{
+	"name": "javascript-snippets",
+	"version": "0.0.1",
+	"description": "JavaScript Snippets for Common Tasks",
+	"author": {
+		"name": "Suvankar Satpati",
+		"email": "suvankar.17@gmail.com"
+	},
+	"main": "bin/runner",
+	"repository": {
+		"type": "git",
+		"url": "_https://github.com/suvankars/javascript-snippets.git"
+	},
+	"dependencies": {
+		"nodeunit": "*"
+	}
+}
