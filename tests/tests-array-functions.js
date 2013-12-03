@@ -42,7 +42,7 @@ exports['count'] = nodeunit.testCase({
 exports['head'] = nodeunit.testCase({
 	'find head of an empty array': function (test) {
 		var arrHead = arrays.head([]);
-		test.equal(typeof(arrHead), 'undefined');
+		test.equal(typeof (arrHead), 'undefined');
 		test.done();
 	},
 
@@ -51,6 +51,7 @@ exports['head'] = nodeunit.testCase({
 		test.equal(arrHead, 2);
 		test.done();
 	},
+
 	'find head of an string array': function (test) {
 		var arrHead = arrays.head(['uno', 'dos', 'tres']);
 		test.equal(arrHead, 'uno');
@@ -61,7 +62,7 @@ exports['head'] = nodeunit.testCase({
 exports['init'] = nodeunit.testCase({
 	'an empty array': function (test) {
 		var arrInit = arrays.init([]);
-		test.equal(typeof(arrInit.val), 'undefined');
+		test.equal(typeof (arrInit.val), 'undefined');
 		test.done();
 	},
 
@@ -105,3 +106,37 @@ exports['init'] = nodeunit.testCase({
 	}
 });
 
+exports['tail'] = nodeunit.testCase({
+	'an empty array': function (test) {
+		var arrTail = arrays.tail([]);
+		test.equal(typeof (arrTail.val), 'undefined');
+		test.done();
+
+	},
+
+	'selects all elements except the first from an string array': function (test) {
+		var eachEqual = function (a, b) {
+			var i;
+			for (i = 0; i < a.length; i++){
+				if (a[i] != b[i]){ return false;};
+			}
+			return true;
+		}
+		var arrTail = arrays.tail(['JavaScript', 'Ruby', 'RoR']);
+		test.equal(eachEqual(arrTail, ['Ruby', 'RoR']), true);
+		test.done();
+	},
+
+	'select all, except first element from an numeric array': function (test) {
+		var eachEqual = function (a, b) {
+			var i;
+			for (i = 0; i < a.length; i++){
+				if (a[i] != b[i]){ return false;};
+			}
+			return true;
+		}
+		var arrTail = arrays.tail([1, 2, 3, 4, 5]);
+		test.equal(eachEqual(arrTail, [2, 3, 4, 5]), true);
+		test.done();
+	}
+});

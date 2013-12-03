@@ -48,9 +48,9 @@ Returns:
     an array consisting of all elements of this array except the last one
 */
 
-exports.init = function (a){
-    return a.slice(0, (a.length-1));
-}
+exports.init = function (a) {
+    return a.slice(0, (a.length - 1));
+};
 
 
 /*
@@ -63,11 +63,11 @@ Returns:
     The last element of this array.
 */
 
-var last = function(a){
-    return a[a.length-1];
-}    
-    
-last([1,2,3,4,5]);  //Should return 5
+
+exports.last = function (a) {
+	     return a[a.length - 1];
+};
+
 
 /*
 tail
@@ -79,13 +79,10 @@ Returns:
     a array consisting of all elements of this array except the first one
 */
 
-var tail = function (a){
-    return a.slice(1);
-}
+exports.tail = function (a) {
+	return a.slice(1);
+};
 
-tail([1, 2, 3, 4, 5]);  // should return [2, 3, 4, 5]       
-tail([1, 2]);	        // Should return [1]      
-tail([]);	        // Should return []
 
 /*Distinct
 --------
