@@ -117,9 +117,6 @@ exports['tail'] = nodeunit.testCase({
 });
 
 
-
-
-
 exports['distinct'] = nodeunit.testCase({
 	'an empty array': function (test) {
 		var distinctArr = arrays.distinct([]);
@@ -140,4 +137,49 @@ exports['distinct'] = nodeunit.testCase({
 	}
 
 });
+
+exports['drop'] = nodeunit.testCase({
+	'an empty array': function (test) {
+		var dropElm = arrays.drop([], 0);
+		test.equal(typeof (dropElm.val), 'undefined');
+		test.done();
+	},
+
+	'an unique numeric array': function (test) {
+
+		var modifiedArr = arrays.drop([1, 2, 3, 4, 5], 2);
+		test.equal(eachEqual(modifiedArr, [3, 4, 5]), true);
+		test.done();
+	},
+
+	'an unique string array': function (test) {
+		var arrTail = arrays.drop(['Rooney', 'Tevez', 'Ibra', 'Emmanuel'], 2);
+		test.equal(eachEqual(arrTail, ['Ibra', 'Emmanuel']), true);
+		test.done();
+	}
+
+});
+
+exports['dropRight'] = nodeunit.testCase({
+	'an empty array': function (test) {
+		var dropElm = arrays.dropRight([], 0);
+		test.equal(typeof (dropElm.val), 'undefined');
+		test.done();
+	},
+
+	'an unique numeric array': function (test) {
+
+		var modifiedArr = arrays.dropRight([1, 2, 3, 4, 5], 2);
+		test.equal(eachEqual(modifiedArr, [1, 2, 3]), true);
+		test.done();
+	},
+
+	'an unique string array': function (test) {
+		var arrTail = arrays.dropRight(['Rooney', 'Tevez', 'Ibra', 'Emmanuel'], 2);
+		test.equal(eachEqual(arrTail, ['Rooney', 'Tevez']), true);
+		test.done();
+	}
+
+});
+
 

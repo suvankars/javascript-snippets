@@ -117,14 +117,13 @@ Selects all elements except first n ones.
     a is an array
     n is the number of elements to drop from this array.
 returns
-    an array consisting of all elements of the given array except the first n ones, or else the empty array, if this array has less than n elements.
+    an array consisting of all elements of the given array except the first n ones, or else the empty array,
+   	if this array has less than n elements.
 */
 
-var drop = function (a, n) {
+exports.drop = function (a, n) {
     return a.slice(n);       // Should return [3, 4, 5]   
 };
-
-drop([1, 2, 3, 4, 5], 2); 
 
 
 
@@ -136,10 +135,11 @@ Selects all elements except last n ones.
     a is an array
     n is the number of elements to take
 Returns:
-    an array consisting of all elements of the given array except the last n ones, or else the empty array, if this array has less than n elements.
+    an array consisting of all elements of the given array except the last n ones, or else the empty array, 
+	if this array has less than n elements.
 */
 
-var dropRight = function (a, n) {
+exports.dropRight = function (a, n) {
     function rightIndex(n) 
 	{
         return (a.length - n);
@@ -147,8 +147,6 @@ var dropRight = function (a, n) {
     return a.slice(0, rightIndex(n)); 
 };
 
-dropRight([1, 2, 3, 4, 5], 2); //should return the array [1, 2, 3]
-dropRight([1, 2, 3, 4, 5], 10); //should return the array []
 
 
 
