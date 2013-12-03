@@ -96,7 +96,7 @@ a new array which contains the first occurrence of every element of this array.
 
 
 
-var distinct = function (a) {
+exports.distinct = function (a) {
     "use strict";
     var distinctArr = [], i;
     for (i = 0; i < (a.length); i++) {
@@ -107,7 +107,6 @@ var distinct = function (a) {
     return distinctArr;
 };
 
-distinct([1, 2, 1, 2, 3]);
 
 
 /*
