@@ -48,11 +48,10 @@ Returns:
     an array consisting of all elements of this array except the last one
 */
 
-var init = function (a){
+exports.init = function (a){
     return a.slice(0, (a.length-1));
 }
 
-init([1,2,3,4,5,6])  //Should return [1,2,3,4,5]
 
 /*
 last

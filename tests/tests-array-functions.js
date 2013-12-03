@@ -50,5 +50,58 @@ exports['head'] = nodeunit.testCase({
 		var arrHead = arrays.head([2, 5, 7, 8, 9]);
 		test.equal(arrHead, 2);
 		test.done();
+	},
+	'find head of an string array': function (test) {
+		var arrHead = arrays.head(['uno', 'dos', 'tres']);
+		test.equal(arrHead, 'uno');
+		test.done();
 	}
 });
+
+exports['init'] = nodeunit.testCase({
+	'an empty array': function (test) {
+		var arrInit = arrays.init([]);
+		test.equal(typeof(arrInit.val), 'undefined');
+		test.done();
+	},
+
+	'select all element of an string array, except last one': function (test) {
+		var eachEqual = function (a, b) {
+			var i;
+			for (i = 0; i < a.length; i++){
+				if (a[i] != b[i]){ return false;};
+			}
+			return true;
+		}
+		var arrInit = arrays.init(['uno', 'dos', 'tres']);
+		test.equal(eachEqual(arrInit, ['uno', 'dos']), true);
+		test.done();
+	},
+
+	'select all element of an numeric array, except last one': function (test) {
+		var eachEqual = function (a, b) {
+			var i;
+			for (i = 0; i < a.length; i++){
+				if (a[i] != b[i]){ return false;};
+			}
+			return true;
+		}
+		var arrInit = arrays.init([1, 2, 3, 4, 5]);
+		test.equal(eachEqual(arrInit, [1, 2, 3, 4]), true);
+		test.done();
+	},
+
+	'numeric arrays with false test condition': function (test) {
+		var eachEqual = function (a, b) {
+			var i;
+			for (i = 0; i < a.length; i++){
+				if (a[i] != b[i]){ return false;};
+			}
+			return true;
+		}
+		var arrInit = arrays.init([1, 2, 3, 4, 5]);
+		test.equal(eachEqual(arrInit, [1, 3, 4]), false);
+		test.done();
+	}
+});
+
