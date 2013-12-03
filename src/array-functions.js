@@ -161,11 +161,7 @@ exports.dropRight = function (a, n) {
 		the longest suffix of this array whose first element does not satisfy the predicate p.
 */
 
-function isOdd(e) {
-    return (e % 2) !== 0;
-}
-
-var dropWhile = function (a, p) {
+exports.dropWhile = function (a, p) {
     var i;
     var retain = [];
     for (i = 0; i < a.length; i++) {
@@ -173,11 +169,9 @@ var dropWhile = function (a, p) {
 	    retain.push(a[i])
         }
     }
-    return retain;     //should return the array [2, 4]
+    return retain;     
 };
 
-
-dropWhile([1,2,3,4,5], isOdd);	
 
 
 
