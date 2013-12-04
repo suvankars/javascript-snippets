@@ -526,3 +526,33 @@ zip([1, 2, 3, 4, 5], [5, 4, 3, 2, 1]) //  should return the array [[1,5], [2,4],
 zip([1, 2, 3], [5, 4, 3, 2, 1]) //  should return the array [[1,5], [2,4], [3,3]
 zip([1, 2, 3, 4, 5], [ 3, 2, 1]) //  should return the array [[1,3], [2,2], [3,1]]
 
+/*
+intersect
+.........
+
+Computes the intersection between the elements of two arrays.
+    a is an array.
+    b is the array of elements to intersect with.
+Returns:
+    a new array which contains all elements of the first array which also appear in the second array.
+    If an element value x appears n times in that, then the first n occurrences of x will be retained in the result, but any following occurrences will be omitted.
+*/
+
+var intersect = function(a, b){
+    var intrSec = []
+    var i;
+    for(i = 0; i < a.length; i++){
+	p = b.indexOf(a[i])
+	if (p !== -1){
+	    intrSec.push(a[i]);
+	    b.splice(p,1)
+	}
+
+    }
+    return intrSec;
+}
+
+console.log(intersect( [1, 2, 2, 2, 5], [2, 2, 5, 6, 7, 8]));
+console.log(intersect( [1, 2, 4,7,7,7,7,7,7,7, 2, 2, 5], [2, 2, 5, 6, 7, 8]));
+console.log(intersect( [5, 5, 1, 2, 2, 2, 5], [2, 2, 5, 6, 7, 8]));
+
