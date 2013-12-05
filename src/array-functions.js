@@ -537,22 +537,24 @@ Returns:
     a new array which contains all elements of the first array which also appear in the second array.
     If an element value x appears n times in that, then the first n occurrences of x will be retained in the result, but any following occurrences will be omitted.
 */
-
-var intersect = function(a, b){
-    var intrSec = []
-    var i;
-    for(i = 0; i < a.length; i++){
-	p = b.indexOf(a[i])
-	if (p !== -1){
-	    intrSec.push(a[i]);
-	    b.splice(p,1)
+var getUnique = function (a) {
+    var u = [], i;
+    for (i = 0; i < a.length; i++) {
+	if ((u.indexOf(a[i])) === -1) {
+	    u.push(a[i]);
 	}
-
     }
-    return intrSec;
-}
+    return u;
+};
 
-console.log(intersect( [1, 2, 2, 2, 5], [2, 2, 5, 6, 7, 8]));
-console.log(intersect( [1, 2, 4,7,7,7,7,7,7,7, 2, 2, 5], [2, 2, 5, 6, 7, 8]));
-console.log(intersect( [5, 5, 1, 2, 2, 2, 5], [2, 2, 5, 6, 7, 8]));
-
+exports.intersect = function (a, b) {
+    uA = getUnique(a);
+    uB = getUnique(b);
+    var intrSec = [], i;
+    for (i = 0; i < uA.length; i++) {
+	if (uB.indexOf(uA[i]) !== -1) {
+	    intrSec.push(uA[i]);
+	}
+    }
+     return intrSec;
+ };
