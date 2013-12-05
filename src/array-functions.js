@@ -579,3 +579,41 @@ zip([1, 2, 3], [5, 4, 3, 2, 1]) //  should return the array [[1,5], [2,4], [3,3]
 zip([1, 2, 3, 4, 5], [ 3, 2, 1]) //  should return the array [[1,3], [2,2], [3,1]]
 
 
+/*
+zipAll
+......
+
+Returns a array formed from this array and another array by combining corresponding elements in pairs.
+If one of the two collections is shorter than the other, placeholder elements are used to extend the shorter array to the length of the longer.
+    a is an array.
+    b is the array providing the second half of each result pair
+    c is the element to be used to fill up the result if a array is shorter than b.
+    d is the element to be used to fill up the result if b is shorter than a array.
+Returns:
+a new array containing pairs consisting of corresponding elements of this array and that.
+The length of the returned array is the maximum of the lengths of a and b
+*/
+
+exports.zipAll = function (a, b, c, d) {
+    var i, zipedArr = []; 
+    if (a.length < b.length) {
+	var firstElms;
+	for (i = 0; i < b.length; i++) {
+	    firstElms = (a.indexOf(a[i]) === -1) ? c : a[i];
+	    zipedArr.push([firstElms, b[i]]);
+	}
+    }
+    else if (a.length > b.length) {
+	var secondElms; 
+	for(i = 0; i < a.length; i++){
+	    secondElms = (b.indexOf(b[i]) === -1) ? d : b[i];
+	    zipedArr.push([a[i], secondElms]);
+	}
+    } else {
+	for(i = 0; i < a.length; i++){
+	    zipedArr.push([a[i], b[i]]);
+	}
+    }
+    return zipedArr;
+};  
+

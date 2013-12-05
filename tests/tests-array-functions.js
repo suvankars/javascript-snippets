@@ -11,6 +11,14 @@ var eachEqual = function (a, b) {
 		return true;
 }
 
+var nestedEachEqual = function (a, b) {
+    var i;
+    for (i = 0; i < a.length; i++){
+	if ( !eachEqual(a[i], b[i])){ return false;};
+    }
+    return true;
+}
+
 var isOdd = function (n) {
 	return (n % 2) !== 0;
 };
@@ -238,4 +246,27 @@ exports['intersect'] = nodeunit.testCase({
         test.equal(eachEqual(intersection, [1, 2]), true);
 	test.done();
    }
+});
+
+exports['zipAll'] = nodeunit.testCase({
+    'two empty array': function (test) {
+	var zippedArr = arrays.zipAll([], [], 100, 200);
+        test.equal(zippedArr.length, 0);
+	test.done();
+    },
+    'two array with same number of elements': function (test) {
+	var zippedArr = arrays.zipAll([1, 2, 3, 4], [6, 7, 8, 9], 100, 200);
+        test.equal(nestedEachEqual(zippedArr, [[1, 6], [2, 7], [3, 8], [4, 9]]), true);
+	test.done();
+    },
+    'two array, where number of elements in second array is shorter': function (test) {
+	var zippedArr = arrays.zipAll([1, 2, 3, 4], [1, 2], 100, 200);
+        test.equal(nestedEachEqual(zippedArr, [[1, 1], [2, 2], [3, 200], [4, 200]]), true);
+	test.done();
+    },
+    'two array, where number of elements in first array is shorter': function (test) {
+	var zippedArr = arrays.zipAll([1, 2], [1, 2, 3, 4], 100, 200);
+        test.equal(nestedEachEqual(zippedArr, [[1, 1], [2, 2], [100, 3], [100, 4]]), true);
+	test.done();
+    }
 });
