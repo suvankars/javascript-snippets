@@ -487,14 +487,66 @@ Returns:
     a new array which contains all elements of array a followed by all elements of array b.
 
 */    
-
-
-var union = function(a,b) {
-    u = a.concat(b);
+var getUnique = function (a) {
+    var u = [], i;
+    for (i = 0; i < a.length; i++) {
+	if ((u.indexOf(a[i])) === -1) {
+	    u.push(a[i]);
+	}
+    }
     return u;
 };
-union( [1, 2, 3, 4, 5], [3, 4, 5, 6, 7, 8]);    // should return the array [1, 2, 3, 4, 5, 3, 4, 5, 6, 7, 8]
-union( [1, 2, 2, 2, 5], [2, 2, 5, 6, 7, 8]);    // should return the array [1, 2, 2, 2, 5, 2, 2, 5, 6, 7, 8]
+
+exports.union = function(a,b) {
+    var uA = getUnique(a);
+    var uB = getUnique(b);
+    var AunionB = [], i;
+    for (i = 0; i < uA.length; i++) {
+	if (AunionB.indexOf(uA[i]) === -1) {
+	    AunionB.push(uA[i]);
+	}
+    }
+    for (i = 0; i < uB.length; i++) {
+	if (AunionB.indexOf(uB[i]) === -1) {
+	   AunionB.push(uB[i]);
+	}
+    }
+    return AunionB;
+};
+
+
+/*
+intersect
+.........
+
+Computes the intersection between the elements of two arrays.
+    a is an array.
+    b is the array of elements to intersect with.
+Returns:
+    a new array which contains all elements of the first array which also appear in the second array.
+    If an element value x appears n times in that, then the first n occurrences of x will be retained in the result, but any following occurrences will be omitted.
+*/
+var getUnique = function (a) {
+    var u = [], i;
+    for (i = 0; i < a.length; i++) {
+	if ((u.indexOf(a[i])) === -1) {
+	    u.push(a[i]);
+	}
+    }
+    return u;
+};
+
+exports.intersect = function (a, b) {
+    var uA = getUnique(a);
+    var uB = getUnique(b);
+    var intrSec = [], i;
+    for (i = 0; i < uA.length; i++) {
+	if (uB.indexOf(uA[i]) !== -1) {
+	    intrSec.push(uA[i]);
+	}
+    }
+     return intrSec;
+ };
 
 /*
 zip
@@ -526,35 +578,4 @@ zip([1, 2, 3, 4, 5], [5, 4, 3, 2, 1]) //  should return the array [[1,5], [2,4],
 zip([1, 2, 3], [5, 4, 3, 2, 1]) //  should return the array [[1,5], [2,4], [3,3]
 zip([1, 2, 3, 4, 5], [ 3, 2, 1]) //  should return the array [[1,3], [2,2], [3,1]]
 
-/*
-intersect
-.........
 
-Computes the intersection between the elements of two arrays.
-    a is an array.
-    b is the array of elements to intersect with.
-Returns:
-    a new array which contains all elements of the first array which also appear in the second array.
-    If an element value x appears n times in that, then the first n occurrences of x will be retained in the result, but any following occurrences will be omitted.
-*/
-var getUnique = function (a) {
-    var u = [], i;
-    for (i = 0; i < a.length; i++) {
-	if ((u.indexOf(a[i])) === -1) {
-	    u.push(a[i]);
-	}
-    }
-    return u;
-};
-
-exports.intersect = function (a, b) {
-    uA = getUnique(a);
-    uB = getUnique(b);
-    var intrSec = [], i;
-    for (i = 0; i < uA.length; i++) {
-	if (uB.indexOf(uA[i]) !== -1) {
-	    intrSec.push(uA[i]);
-	}
-    }
-     return intrSec;
- };

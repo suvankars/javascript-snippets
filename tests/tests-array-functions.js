@@ -194,6 +194,29 @@ exports['dropWhile'] = nodeunit.testCase({
     },
 }); 
 
+exports['union'] = nodeunit.testCase({
+    'two empty array': function (test) {
+	var unionArr = arrays.union([], []);
+        test.equal(unionArr.length, 0);
+	test.done();
+    },
+    'one empty array with one non empty': function (test) {
+	var unionArr = arrays.union([], [6, 7, 8, 9]);
+        test.equal(eachEqual(unionArr, [6, 7, 8, 9]), true);
+	test.done();
+    },
+    'two numeric array': function (test) {
+	var unionArr = arrays.union([1, 2, 3, 4, 5], [3, 4, 5, 6, 7, 8])
+        test.equal(eachEqual(unionArr, [1, 2, 3, 4, 5, 6, 7, 8]), true);
+	test.done();
+    },
+   'two numeric array, with duplicate element set': function (test) {
+	var unionArr = arrays.union([1, 2, 2, 2, 5], [2, 2, 5, 6, 7, 8])
+        test.equal(eachEqual(unionArr, [1, 2, 5, 6, 7, 8]), true);
+	test.done();
+   }
+});
+
 exports['intersect'] = nodeunit.testCase({
     'two empty array': function (test) {
 	var intersection = arrays.intersect([], []);
